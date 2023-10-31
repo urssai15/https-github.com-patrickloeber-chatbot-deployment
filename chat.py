@@ -25,7 +25,7 @@ model = NeuralNet(input_size, hidden_size, output_size).to(device)
 model.load_state_dict(model_state)
 model.eval()
 
-bot_name = "Sam"
+bot_name = "CHATBOT"
 
 def get_response(msg):
     sentence = tokenize(msg)
@@ -45,17 +45,7 @@ def get_response(msg):
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     
-    return "I do not understand..."
+    return "I do not understand...Please select from following category so that i can help you? \n1.COURSE and DEPARTMENT, \n2.ADMISSION, \n3.COUNCIL and COMMITTEES, \n4.CONTACT, \n5.PLACEMENT and INTERNSHIP, \n6.OTHER "
 
-
-if __name__ == "__main__":
-    print("Let's chat! (type 'quit' to exit)")
-    while True:
-        # sentence = "do you use credit cards?"
-        sentence = input("You: ")
-        if sentence == "quit":
-            break
-
-        resp = get_response(sentence)
-        print(resp)
+    
 
